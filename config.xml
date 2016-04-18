@@ -1,0 +1,27 @@
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="I_dont_know_what_belongs_here_but_I_think_it_only_matters_for_iOS_apps" versionCode="2" version="0.0.2" xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--attribute in the widget element. List of things you can configure on android: http://goo.gl/Gr16rr-->
+
+    <name>Smartphone App</name>
+    <description>seems to only be relevant for Phonegaps internal description thingy</description>
+    <author href="ProdApp.xyz" email="private@leave_me_the_fuck.alone">Niki Herl</author>
+    <gap:platform name="android" />
+    <!--you can force a specific phonegap version via a preference element (google it)-->
+
+    <preference name="fullscreen" value="false" />
+
+    <icon src="res/icon/android/mipmap-mdpi/ic_launcher.png" gap:platform="android" gap:density="mdpi" />
+    <icon src="res/icon/android/mipmap-hdpi/ic_launcher.png" gap:platform="android" gap:density="hdpi" />
+    <icon src="res/icon/android/mipmap-xhdpi/ic_launcher.png" gap:platform="android" gap:density="xhdpi" />
+    <icon src="res/icon/android/mipmap-xxhdpi/ic_launcher.png" gap:platform="android" gap:density="xxhdpi" />
+    <icon src="res/icon/android/mipmap-xxxhdpi/ic_launcher.png" gap:platform="android" gap:density="xxxhdpi" />
+    <!-- color is #00bcd4 and white -->
+
+    <!--gap:splash src="res/screen/file.png" gap:platform="android" gap:density="mdpi" /-->
+
+    <feature name="http://api.phonegap.com/1.0/contacts" />
+    <feature name="http://api.phonegap.com/1.0/network" />
+
+    <plugin name="com.ionic.keyboard" spec="1.0.3" source="pgb" />
+
+</widget>

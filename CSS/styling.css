@@ -1,0 +1,48 @@
+body {
+    background-color: #bfffff;
+    font: Arial;
+}
+
+h1 {
+    text-align: center;
+}
+
+.button {
+    margin-top: 2%;
+    padding: 2%;
+    font-size: 170%;
+    background-color: #ffffff;
+}
+
+.links {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#controlPanel {
+    display: block;
+    text-align: center;    
+}
+
+.textArea {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#newNoteTitle {
+    width: 65%;
+    height: 200%;
+    margin-top: 16px;
+    font-size: 170%;
+    resize: vertical;
+}
+
+#newNoteContent {
+    width: 80%;
+    height: 2%;
+    margin-top: 8px;
+    font-size: 170%;
+    resize: vertical;
+}

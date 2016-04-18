@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" charset="UTF-8" content="initial-scale=1, width=device-width, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="CSS/styling.css">
+    <script src="JS/logic.js" defer></script>
+</head>
+
+<body>
+    <div id="homepage" class="site">
+        <div>
+            <button class="button links" onclick="switchVisibleSite('newNote')">CREATE NEW NOTE</button>
+            <button class="button links" onclick="switchVisibleSite('viewNote')">VIEW NOTES</button>
+            <button class="button links" onclick="switchVisibleSite('dpSetup')">CONNECT DROPBOX-ACC.</button>
+
+        </div>
+    </div>
+    <div id="newNote" class="site">
+        <div id="controlPanel">
+            <button class="button" onclick="newNote()">CREATE NEW NOTE</button>
+            <button class="button" onclick="safeNewNote()">SAFE NOTE</button>
+            <button class="button" onclick="deleteNote()">DELETE</button>
+            <button class="button" onclick="switchVisibleSite('homepage')">RETURN</button>
+        </div>
+        <textarea id="newNoteTitle" class="textArea" maxlength="500" rows="2"></textarea>
+        <textarea id="newNoteContent" class="textArea" maxlength="10000" rows="10"></textarea>
+    </div>
+    <div id="dpSetup" class="site"></div>
+    <div id="viewNote" class="site"></div>
+</body>
+
+</html>
