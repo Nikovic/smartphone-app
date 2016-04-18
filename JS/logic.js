@@ -34,15 +34,16 @@ function switchVisibleSite(targetSiteId) {
     currentSite = targetSite;
 }
 
-function backbuttonBehavior () {
-    if (currentSite != document.getElementById("homepage")){
+function backbuttonBehavior() {
+    if (currentSite != document.getElementById("homepage")) {
         switchVisibleSite("homepage");
     }
 }
 
-initSites();
-
-//function newNote(){'blablabla_textarea'.focus();}
+/*function newNote(){
+'blablabla_textarea'.focus();
+}
+*/
 
 /*function safeNewNote(){
 var title =
@@ -51,3 +52,5 @@ var content =
 */
 
 //function to stop creation of new notes when form.elements.length (if this exists) > 1
+
+initSites();
