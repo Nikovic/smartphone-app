@@ -40,20 +40,44 @@ function backbuttonBehavior() {
     }
 }
 
-/*function newNote(){
-var titleTextArea;
-var contentTextArea;
+function newNote() {
+    if (document.getElementById("newNoteTitle2")) {
+        safeNewNote();
+        deleteNote();
+    }
+    var titleTextArea = document.createElement("textarea");
+    titleTextArea.setAttribute("id", "newNoteTitle2");
+    titleTextArea.setAttribute("class", "textArea");
+    titleTextArea.setAttribute("maxlength", "500");
+    titleTextArea.setAttribute("rows", "2");
+    document.getElementById("note").appendChild(titleTextArea);
+    document.getElementById("newNoteTitle2").focus();
 
-'blablabla_textarea'.focus();
+
+    var contentTextArea = document.createElement("textarea");
+    contentTextArea.setAttribute("id", "newNoteContent2");
+    contentTextArea.setAttribute("class", "textArea");
+    contentTextArea.setAttribute("maxlength", "10000");
+    contentTextArea.setAttribute("rows", "10");
+    document.getElementById("note").appendChild(contentTextArea);
 }
-*/
 
-/*function safeNewNote(){
+function safeNewNote() {
+    /*
+1) check if empty
+2) check if an localstorage-id has been assigned and if not create one (distinct from others localStorage) and assign
+3) take the title, content and any metadata and put them in the right order and so
+4) safe to localStorage
+
 var title =
 var content =
-'blablabla_textarea'.blur();}
-*/
+'blablabla_textarea'.blur();*/
+}
 
-//function to stop creation of new notes when form.elements.length (if this exists) > 1
+function deleteNote() {
+    var noteDiv = document.getElementById("note");
+    noteDiv.removeChild(document.getElementById("newNoteTitle2"));
+    noteDiv.removeChild(document.getElementById("newNoteContent2"));
+}
 
 initSites();
