@@ -40,44 +40,87 @@ function backbuttonBehavior() {
     }
 }
 
-function newNote() {
-    if (document.getElementById("newNoteTitle2")) {
+function getRandomId() {
+    var min = 0;
+    var max = 1000000;
+    return Math.floor(Math.random() * (max - min)) + min;
+}
+
+function openNote() {
+    if (document.getElementById("newNoteTitle")) {
         safeNewNote();
         deleteNote();
+        console.log("there was a note in the way, safed and deleted it")
     }
+
+    if (document.getElementById("note").getAttribute("localStorageId") == "") {
+        //I REALLY should make this check if the number has already been used but I'm way in over my head anyway... and tbh, this is funny
+        document.getElementById("note").setAttribute("localStorageId", getRandomId());
+    }
+    
+    console.log("the note-div's 'localStorageId' is: " + document.getElementById("note").getAttribute("localStorageId"));
+    
     var titleTextArea = document.createElement("textarea");
-    titleTextArea.setAttribute("id", "newNoteTitle2");
+    titleTextArea.setAttribute("id", "newNoteTitle");
     titleTextArea.setAttribute("class", "textArea");
     titleTextArea.setAttribute("maxlength", "500");
     titleTextArea.setAttribute("rows", "2");
-    document.getElementById("note").appendChild(titleTextArea);
-    document.getElementById("newNoteTitle2").focus();
-
+    titleTextArea.setAttribute("placeholder", "Add an Title");
 
     var contentTextArea = document.createElement("textarea");
-    contentTextArea.setAttribute("id", "newNoteContent2");
+    contentTextArea.setAttribute("id", "newNoteContent");
     contentTextArea.setAttribute("class", "textArea");
     contentTextArea.setAttribute("maxlength", "10000");
     contentTextArea.setAttribute("rows", "10");
+    contentTextArea.setAttribute("placeholder", "Main Content Here");
+
+    document.getElementById("note").appendChild(titleTextArea);
+    document.getElementById("newNoteTitle").focus();
     document.getElementById("note").appendChild(contentTextArea);
+    
+    console.log(document.getElementById("note").getAttribute("localStorageId"));
 }
 
 function safeNewNote() {
-    /*
-1) check if empty
-2) check if an localstorage-id has been assigned and if not create one (distinct from others localStorage) and assign
-3) take the title, content and any metadata and put them in the right order and so
-4) safe to localStorage
+    var titleElement = document.getElementById("newNoteTitle");
+    var title = titleElement.value.trim();
+    console.log(title);
+    var content = document.getElementById("newNoteContent").value.trim();
 
-var title =
-var content =
-'blablabla_textarea'.blur();*/
+    //I need to have titleLength always be of a certain length so I now weird stuff happens when opening the note (reading the string) later on
+    if (title.length > 0 || content.length > 0) {
+        var titleLength = (function () {
+            if (title.length < 1) {
+                return "000";
+            }
+            if (title.length < 10) {
+                return "00" + title.length;
+            }
+            if (title.length < 100) {
+                return "0" + title.length;
+            }
+            return title.length;
+        })();
+
+        var localStorageName = document.getElementById("note").getAttribute("localStorageId");
+        window.localStorage.setItem(localStorageName, titleLength + title + content);
+        console.log("safeNote() was called and localStorageName is: " + localStorageName);
+    } else {
+        console.log("title || content apparently both empty");
+    }
+    /* Once I do this properly:
+        1) check if everything is empty (if it is, I don't want to safe anything, right?)
+    2) check if an localstorage-id has been assigned and if not create one (distinct from others localStorage) and assign
+    3) take the title, content and any metadata and put them in the right order and so
+    4) safe to localStorage
+    */
 }
 
 function deleteNote() {
     var noteDiv = document.getElementById("note");
-    noteDiv.removeChild(document.getElementById("newNoteTitle2"));
-    noteDiv.removeChild(document.getElementById("newNoteContent2"));
+    noteDiv.removeChild(document.getElementById("newNoteTitle"));
+    noteDiv.removeChild(document.getElementById("newNoteContent"));
+    document.getElementById("note").dataset.localStorageId = "";
 }
 
 initSites();

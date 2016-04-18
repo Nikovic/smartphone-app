@@ -46,19 +46,3 @@ h1 {
     font-size: 170%;
     resize: vertical;
 }
-
-#newNoteTitle2 {
-    width: 65%;
-    height: 200%;
-    margin-top: 16px;
-    font-size: 170%;
-    resize: vertical;
-}
-
-#newNoteContent2 {
-    width: 80%;
-    height: 2%;
-    margin-top: 8px;
-    font-size: 170%;
-    resize: vertical;
-}

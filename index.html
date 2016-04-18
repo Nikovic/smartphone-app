@@ -17,17 +17,12 @@
     </div>
     <div id="newNote" class="site">
         <div id="controlPanel">
-            <button class="button" onclick="newNote()">CREATE NEW NOTE</button>
+            <button class="button" onclick="openNote()">CREATE NEW NOTE</button>
             <button class="button" onclick="safeNewNote()">SAFE NOTE</button>
-            <button class="button" onclick="deleteNote()">DELETE</button>
-            <button class="button" onclick="switchVisibleSite('homepage')">RETURN</button>
+            <button class="button" onclick="deleteNote()">DELETE W/O SAVING</button>
+            <button class="button" onclick="switchVisibleSite('homepage');deleteNote()">RETURN</button>
         </div>
-        <div id="note">
-            <h1>Standard thingies:</h1>
-            <textarea id="newNoteTitle" class="textArea" maxlength="500" rows="2">
-            </textarea>
-            <textarea id="newNoteContent" class="textArea" maxlength="10000" rows="10"></textarea>
-            <h1>Appended thingies:</h1>
+        <div id="note" localStorageId="">
         </div>
     </div>
     <div id="viewNote" class="site"></div>
