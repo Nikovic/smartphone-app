@@ -41,6 +41,9 @@ function backbuttonBehavior() {
 }
 
 /*function newNote(){
+var titleTextArea;
+var contentTextArea;
+
 'blablabla_textarea'.focus();
 }
 */
