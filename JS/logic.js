@@ -197,4 +197,9 @@ function updateViewNote(numberOfNotes) {
     console.log("omg is dis real lyfe?");
 }
 
+function clearStorage() {
+    window.localStorage.clear();
+    initViewNote();
+}
+
 initSites();
