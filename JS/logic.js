@@ -178,7 +178,7 @@ function noteReader(localStorageName, targetDivId) {
 }
 
 function initViewNote(numberOfNotes) {
-    var noteViewContainer = document.getElementById("viewNote");
+    var noteViewContainer = document.getElementById("viewNoteContainer");
     var divToAttach;
     for (var i = 0; i < numberOfNotes; i++) {
         divToAttach = document.createElement("div");
@@ -199,6 +199,10 @@ function updateViewNote(numberOfNotes) {
 
 function clearStorage() {
     window.localStorage.clear();
+    var targetDiv = document.getElementById("viewNoteContainer");
+    while (targetDiv.firstChild) {
+        targetDiv.removeChild(targetDiv.firstChild);
+    }
     initViewNote();
 }
 
