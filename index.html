@@ -10,22 +10,23 @@
 <body>
     <div id="homepage" class="site">
         <div>
-            <button class="button links" onclick="switchVisibleSite('newNote')">CREATE NEW NOTE</button>
+            <button class="button links" onclick="switchVisibleSite('newNotePage')">CREATE NEW NOTE</button>
             <button class="button links" onclick="switchVisibleSite('viewNote')">VIEW NOTES</button>
 
         </div>
     </div>
-    <div id="newNote" class="site">
+    <div id="newNotePage" class="site">
         <div id="controlPanel">
             <button class="button" onclick="openNote()">CREATE NEW NOTE</button>
             <button class="button" onclick="safeNewNote()">SAFE NOTE</button>
             <button class="button" onclick="deleteNote()">DELETE W/O SAVING</button>
-            <button class="button" onclick="switchVisibleSite('homepage');deleteNote()">RETURN</button>
+            <button class="button" onclick="switchVisibleSite('homepage')">RETURN</button>
         </div>
-        <div id="note" localStorageId="">
+        <div id="newNote" localStorageId="">
         </div>
     </div>
-    <div id="viewNote" class="site"></div>
+    <div id="viewNote" class="site">
+    </div>
 </body>
 
 </html>

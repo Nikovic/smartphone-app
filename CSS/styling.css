@@ -22,7 +22,7 @@ h1 {
 
 #controlPanel {
     display: block;
-    text-align: center;    
+    text-align: center;
 }
 
 .textArea {
@@ -31,7 +31,7 @@ h1 {
     margin-right: auto;
 }
 
-#newNoteTitle {
+.title {
     width: 65%;
     height: 200%;
     margin-top: 16px;
@@ -39,7 +39,7 @@ h1 {
     resize: vertical;
 }
 
-#newNoteContent {
+.content {
     width: 80%;
     height: 2%;
     margin-top: 8px;
