@@ -148,6 +148,7 @@ function safeNewNote() {
     3) take the title, content and any metadata and put them in the right order and so
     4) safe to localStorage
     */
+    updateViewNote(numberOfVisibleNotes);
 }
 
 function deleteNote() {
