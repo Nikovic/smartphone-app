@@ -174,27 +174,27 @@ function noteReader(localStorageName, targetDivId) {
     var titleLength = +localStorageValue.substring(0, 3);
     var title = localStorageValue.substring(3, 3 + titleLength);
     var content = localStorageValue.substring(3 + titleLength);
+    console.log(targetDivId);
     openExistingNote(title, content, localStorageName, targetDivId)
 }
 
-function initViewNote(numberOfNotes) {
+function initViewNote() {
     var noteViewContainer = document.getElementById("viewNoteContainer");
     var divToAttach;
-    for (var i = 0; i < numberOfNotes; i++) {
+    for (var i = 0; i < numberOfVisibleNotes; i++) {
         divToAttach = document.createElement("div");
         divToAttach.setAttribute("id", "noteView" + i);
         divToAttach.setAttribute("localStorageId", "");
         noteViewContainer.appendChild(divToAttach);
     }
-    updateViewNote(numberOfNotes);
+    updateViewNote();
 }
 
-function updateViewNote(numberOfNotes) {
-    for (var i = 0; i < numberOfNotes; i++) {
+function updateViewNote() {
+    for (var i = 0; i < numberOfVisibleNotes; i++) {
         var targetDivId = "noteView" + i;
         openNoteByLocation(i, targetDivId);
     }
-    console.log("omg is dis real lyfe?");
 }
 
 function clearStorage() {
